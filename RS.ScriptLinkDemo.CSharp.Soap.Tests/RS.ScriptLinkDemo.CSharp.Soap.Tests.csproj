@@ -49,11 +49,12 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HelloWorldCommandTests.cs" />
+    <Compile Include="Commands\HelloWorldCommandTests.cs" />
+    <Compile Include="Factories\ConnectionStringSelectorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DefaultCommandTests.cs" />
-    <Compile Include="CommandSelectorTests.cs" />
-    <Compile Include="GetVersionCommandTests.cs" />
+    <Compile Include="Commands\DefaultCommandTests.cs" />
+    <Compile Include="Factories\CommandSelectorTests.cs" />
+    <Compile Include="Commands\GetVersionCommandTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

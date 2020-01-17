@@ -1,11 +1,14 @@
-﻿using RS.ScriptLinkDemo.CSharp.Data.Models;
+﻿using NLog;
+using RS.ScriptLinkDemo.CSharp.Data.Models;
 using System.Configuration;
 
 namespace RS.ScriptLinkDemo.CSharp.Soap.Factories
 {
     public static class ConnectionStringSelector
     {
-        public static ConnectionStringCollection GetConnectionString()
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+
+        public static ConnectionStringCollection GetConnectionStringCollection()
         {
             string pmString = GetConnectionString("AVPM");
             string cwsString = GetConnectionString("AVCWS");
@@ -13,7 +16,7 @@ namespace RS.ScriptLinkDemo.CSharp.Soap.Factories
             return new ConnectionStringCollection(pmString, cwsString, msoString);
         }
 
-        private static string GetConnectionString(string namespaceName)
+        public static string GetConnectionString(string namespaceName)
         {
             string connectionName = GetConnectionStringName(namespaceName);
             if (connectionName != null && ConfigurationManager.ConnectionStrings[connectionName] != null)

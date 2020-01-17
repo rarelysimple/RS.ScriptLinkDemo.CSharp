@@ -2,7 +2,7 @@
 using RS.ScriptLinkDemo.CSharp.Objects;
 using RS.ScriptLinkDemo.CSharp.Soap.Commands;
 
-namespace RS.ScriptLinkDemo.CSharp.Soap.Tests
+namespace RS.ScriptLinkDemo.CSharp.Soap.Tests.Commands
 {
     [TestClass]
     public class GetVersionCommandTests

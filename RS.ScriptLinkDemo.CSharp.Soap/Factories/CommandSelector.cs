@@ -26,7 +26,7 @@ namespace RS.ScriptLinkDemo.CSharp.Soap.Factories
             logger.Debug("Script '" + scriptName + "' requested.");
 
             // Get Dependencies
-            ConnectionStringCollection odbcConnectionStrings = ConnectionStringSelector.GetConnectionString();
+            ConnectionStringCollection odbcConnectionStrings = ConnectionStringSelector.GetConnectionStringCollection();
             var repository = new GetOdbcDataRepository(odbcConnectionStrings);
 
             switch (scriptName)
