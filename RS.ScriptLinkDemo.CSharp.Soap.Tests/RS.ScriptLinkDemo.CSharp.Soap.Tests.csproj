@@ -59,6 +59,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RS.ScriptLinkDemo.CSharp.Data\RS.ScriptLinkDemo.CSharp.Data.csproj">
+      <Project>{cb5e0182-9381-4ade-89e2-f27ec525af23}</Project>
+      <Name>RS.ScriptLinkDemo.CSharp.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RS.ScriptLinkDemo.CSharp.Objects\RS.ScriptLinkDemo.CSharp.Objects.csproj">
       <Project>{ca57021b-4d25-4318-a78a-03f585df2502}</Project>
       <Name>RS.ScriptLinkDemo.CSharp.Objects</Name>

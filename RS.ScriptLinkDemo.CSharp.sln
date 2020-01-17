@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RS.ScriptLinkDemo.CSharp.Objects", "RS.ScriptLinkDemo.CSharp.Objects\RS.ScriptLinkDemo.CSharp.Objects.csproj", "{CA57021B-4D25-4318-A78A-03F585DF2502}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RS.ScriptLinkDemo.CSharp.Objects", "RS.ScriptLinkDemo.CSharp.Objects\RS.ScriptLinkDemo.CSharp.Objects.csproj", "{CA57021B-4D25-4318-A78A-03F585DF2502}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RS.ScriptLinkDemo.CSharp.Soap.Tests", "RS.ScriptLinkDemo.CSharp.Soap.Tests\RS.ScriptLinkDemo.CSharp.Soap.Tests.csproj", "{96375238-BDC3-4191-A328-8D6F3F4065A7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RS.ScriptLinkDemo.CSharp.Soap", "RS.ScriptLinkDemo.CSharp.Soap\RS.ScriptLinkDemo.CSharp.Soap.csproj", "{D3D433A3-6159-47F3-A0AF-E170DB36A214}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RS.ScriptLinkDemo.CSharp.Data", "RS.ScriptLinkDemo.CSharp.Data\RS.ScriptLinkDemo.CSharp.Data.csproj", "{CB5E0182-9381-4ADE-89E2-F27EC525AF23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{D3D433A3-6159-47F3-A0AF-E170DB36A214}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3D433A3-6159-47F3-A0AF-E170DB36A214}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3D433A3-6159-47F3-A0AF-E170DB36A214}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB5E0182-9381-4ADE-89E2-F27EC525AF23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB5E0182-9381-4ADE-89E2-F27EC525AF23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB5E0182-9381-4ADE-89E2-F27EC525AF23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB5E0182-9381-4ADE-89E2-F27EC525AF23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
