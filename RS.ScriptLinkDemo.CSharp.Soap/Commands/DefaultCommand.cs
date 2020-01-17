@@ -1,9 +1,11 @@
-﻿using RS.ScriptLinkDemo.CSharp.Objects;
+﻿using NLog;
+using RS.ScriptLinkDemo.CSharp.Objects;
 
 namespace RS.ScriptLinkDemo.CSharp.Soap.Commands
 {
     public class DefaultCommand : IRunScriptCommand
     {
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
         private readonly OptionObject2015 _optionObject2015;
         private readonly string _parameter;
 
@@ -16,6 +18,7 @@ namespace RS.ScriptLinkDemo.CSharp.Soap.Commands
         public OptionObject2015 Execute()
         {
             string message = "Error: There is no command matching the parameter '" + _parameter + "'. Please verify your settings.";
+            logger.Error(message);
 
             return new OptionObject2015()
             {

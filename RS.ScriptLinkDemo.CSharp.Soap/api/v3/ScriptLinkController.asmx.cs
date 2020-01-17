@@ -1,4 +1,5 @@
-﻿using RS.ScriptLinkDemo.CSharp.Objects;
+﻿using NLog;
+using RS.ScriptLinkDemo.CSharp.Objects;
 using RS.ScriptLinkDemo.CSharp.Soap.Commands;
 using RS.ScriptLinkDemo.CSharp.Soap.Factories;
 using System.Web.Services;
@@ -15,10 +16,17 @@ namespace RS.ScriptLinkDemo.CSharp.Soap.api.v3
     // [System.Web.Script.Services.ScriptService]
     public class ScriptLinkController : System.Web.Services.WebService
     {
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+
         [WebMethod]
         public string GetVersion()
         {
             IGetVersionCommand command = new GetVersionCommand(new OptionObject2015());
+            if (command == null)
+            {
+                logger.Error("A valid GetVersion command was not retrieved.");
+                return "";
+            }
             return command.Execute();
         }
 
@@ -26,6 +34,11 @@ namespace RS.ScriptLinkDemo.CSharp.Soap.api.v3
         public OptionObject2015 RunScript(OptionObject2015 optionObject2015, string parameter)
         {
             IRunScriptCommand command = CommandSelector.GetCommand(optionObject2015, parameter);
+            if (command == null)
+            {
+                logger.Error("A valid RunScript command was not retrieved.");
+                return optionObject2015;
+            }
             return command.Execute();
         }
     }

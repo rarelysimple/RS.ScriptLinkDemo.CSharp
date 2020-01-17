@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Data.Odbc;
 
 namespace RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc
@@ -6,7 +7,8 @@ namespace RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc
     public partial class GetOdbcDataRepository : IGetDataRepository
     {
         #region Private Properties
-        
+
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
         private readonly string _connectionString;
 
         #endregion
@@ -40,7 +42,7 @@ namespace RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc
                 }
                 catch (Exception ex)
                 {
-                    // log error
+                    logger.Error(ex, "GetPatientBool failed.");
                 }
             }
 
@@ -63,7 +65,7 @@ namespace RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc
                 }
                 catch (Exception ex)
                 {
-                    // log result
+                    logger.Error(ex, "GetPatientDateTime failed.");
                 }
             }
 
@@ -87,7 +89,7 @@ namespace RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc
                 }
                 catch (Exception ex)
                 {
-                    // log result
+                    logger.Error(ex, "GetPatientDateTime failed.");
                 }
             }
 
@@ -110,7 +112,7 @@ namespace RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc
                 }
                 catch (Exception ex)
                 {
-                    // log error
+                    logger.Error(ex, "GetPatientInt failed.");
                 }
             }
 
@@ -134,7 +136,7 @@ namespace RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc
                 }
                 catch (Exception ex)
                 {
-                    // log error
+                    logger.Error(ex, "GetPatientInt failed.");
                 }
             }
 
@@ -158,7 +160,7 @@ namespace RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc
                 }
                 catch (Exception ex)
                 {
-                    // log failure
+                    logger.Error(ex, "GetPatientString failed.");
                 }
             }
 
@@ -182,7 +184,7 @@ namespace RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc
                 }
                 catch (Exception ex)
                 {
-                    // log failure
+                    logger.Error(ex, "GetPatientString failed.");
                 }
             }
 
@@ -206,7 +208,7 @@ namespace RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc
                 }
                 catch (Exception ex)
                 {
-                    // log failure
+                    logger.Error(ex, "GetPatientBool failed.");
                 }
             }
 

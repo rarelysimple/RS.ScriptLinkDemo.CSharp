@@ -1,9 +1,11 @@
-﻿using RS.ScriptLinkDemo.CSharp.Objects;
+﻿using NLog;
+using RS.ScriptLinkDemo.CSharp.Objects;
 
 namespace RS.ScriptLinkDemo.CSharp.Soap.Commands
 {
     public class HelloWorldCommand : IRunScriptCommand
     {
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
         private readonly OptionObject2015 _optionObject2015;
 
         public HelloWorldCommand(OptionObject2015 optionObject2015)
@@ -13,6 +15,8 @@ namespace RS.ScriptLinkDemo.CSharp.Soap.Commands
 
         public OptionObject2015 Execute()
         {
+            logger.Debug("Executing HelloWorldCommand");
+
             return new OptionObject2015()
             {
                 EntityID = _optionObject2015.EntityID,

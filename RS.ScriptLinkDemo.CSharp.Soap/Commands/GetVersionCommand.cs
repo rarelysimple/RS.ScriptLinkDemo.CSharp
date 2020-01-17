@@ -1,9 +1,11 @@
-﻿using RS.ScriptLinkDemo.CSharp.Objects;
+﻿using NLog;
+using RS.ScriptLinkDemo.CSharp.Objects;
 
 namespace RS.ScriptLinkDemo.CSharp.Soap.Commands
 {
     public class GetVersionCommand : IGetVersionCommand
     {
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
         private readonly object _optionObject;
 
         public GetVersionCommand(object optionObject)
@@ -13,6 +15,8 @@ namespace RS.ScriptLinkDemo.CSharp.Soap.Commands
 
         public string Execute()
         {
+            logger.Debug("Executing GetVersionCommand");
+
             string version = "v.0.0.1";
 
             if (_optionObject.GetType() == typeof(OptionObject) ||
