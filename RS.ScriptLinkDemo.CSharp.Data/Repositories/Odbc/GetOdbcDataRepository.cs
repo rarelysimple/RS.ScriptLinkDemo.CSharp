@@ -1,4 +1,5 @@
 ﻿using NLog;
+using RS.ScriptLinkDemo.CSharp.Data.Models;
 using System;
 using System.Data.Odbc;
 
@@ -9,26 +10,26 @@ namespace RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc
         #region Private Properties
 
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
-        private readonly string _connectionString;
+        private readonly ConnectionStringCollection _connectionStringCollection;
 
         #endregion
 
         #region Constructors
 
-        public GetOdbcDataRepository(string connectionString)
+        public GetOdbcDataRepository(ConnectionStringCollection connectionStringCollection)
         {
-            _connectionString = connectionString;
+            _connectionStringCollection = connectionStringCollection;
         }
 
         #endregion
 
         #region Private Methods
 
-        private bool GetPatientBool(string commandString, string facility, string patientId, double episodeNumber)
+        private bool GetPatientBool(string connectionString, string commandString, string facility, string patientId, double episodeNumber)
         {
             string stringResult = "";
 
-            using (OdbcConnection connection = new OdbcConnection(_connectionString))
+            using (OdbcConnection connection = new OdbcConnection(connectionString))
             {
                 OdbcCommand command = new OdbcCommand(commandString, connection);
                 command.Parameters.Add(new OdbcParameter("FACILITY", facility));
@@ -48,11 +49,11 @@ namespace RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc
 
             return SafeGetBool(stringResult);
         }
-        private DateTime GetPatientDateTime(string commandString, string facility, string patientId)
+        private DateTime GetPatientDateTime(string connectionString, string commandString, string facility, string patientId)
         {
             string stringResult = "";
 
-            using (OdbcConnection connection = new OdbcConnection(_connectionString))
+            using (OdbcConnection connection = new OdbcConnection(connectionString))
             {
                 OdbcCommand command = new OdbcCommand(commandString, connection);
                 command.Parameters.Add(new OdbcParameter("FACILITY", facility));
@@ -71,11 +72,11 @@ namespace RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc
 
             return SafeGetDateTime(stringResult);
         }
-        private DateTime GetPatientDateTime(string commandString, string facility, string patientId, double episodeNumber)
+        private DateTime GetPatientDateTime(string connectionString, string commandString, string facility, string patientId, double episodeNumber)
         {
             string stringResult = "";
 
-            using (OdbcConnection connection = new OdbcConnection(_connectionString))
+            using (OdbcConnection connection = new OdbcConnection(connectionString))
             {
                 OdbcCommand command = new OdbcCommand(commandString, connection);
                 command.Parameters.Add(new OdbcParameter("FACILITY", facility));
@@ -95,11 +96,11 @@ namespace RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc
 
             return SafeGetDateTime(stringResult);
         }
-        private int GetPatientInt(string commandString, string facility, string patientId)
+        private int GetPatientInt(string connectionString, string commandString, string facility, string patientId)
         {
             string stringResult = "";
 
-            using (OdbcConnection connection = new OdbcConnection(_connectionString))
+            using (OdbcConnection connection = new OdbcConnection(connectionString))
             {
                 OdbcCommand command = new OdbcCommand(commandString, connection);
                 command.Parameters.Add(new OdbcParameter("FACILITY", facility));
@@ -118,11 +119,11 @@ namespace RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc
 
             return SafeGetInt(stringResult);
         }
-        private int GetPatientInt(string commandString, string facility, string patientId, double episodeNumber)
+        private int GetPatientInt(string connectionString, string commandString, string facility, string patientId, double episodeNumber)
         {
             string stringResult = "";
 
-            using (OdbcConnection connection = new OdbcConnection(_connectionString))
+            using (OdbcConnection connection = new OdbcConnection(connectionString))
             {
                 OdbcCommand command = new OdbcCommand(commandString, connection);
                 command.Parameters.Add(new OdbcParameter("FACILITY", facility));
@@ -143,11 +144,11 @@ namespace RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc
             return SafeGetInt(stringResult);
         }
 
-        private string GetPatientString(string commandString, string facility, string patientId)
+        private string GetPatientString(string connectionString, string commandString, string facility, string patientId)
         {
             string stringResult = "";
 
-            using (OdbcConnection connection = new OdbcConnection(_connectionString))
+            using (OdbcConnection connection = new OdbcConnection(connectionString))
             {
                 OdbcCommand command = new OdbcCommand(commandString, connection);
                 command.Parameters.Add(new OdbcParameter("FACILITY", facility));
@@ -166,11 +167,11 @@ namespace RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc
 
             return stringResult;
         }
-        private string GetPatientString(string commandString, string facility, string patientId, double episodeNumber)
+        private string GetPatientString(string connectionString, string commandString, string facility, string patientId, double episodeNumber)
         {
             string stringResult = "";
 
-            using (OdbcConnection connection = new OdbcConnection(_connectionString))
+            using (OdbcConnection connection = new OdbcConnection(connectionString))
             {
                 OdbcCommand command = new OdbcCommand(commandString, connection);
                 command.Parameters.Add(new OdbcParameter("FACILITY", facility));
@@ -191,11 +192,11 @@ namespace RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc
             return stringResult;
         }
 
-        private string GetStaffString(string commandString, string facility, string staffId)
+        private string GetStaffString(string connectionString, string commandString, string facility, string staffId)
         {
             string stringResult = "";
 
-            using (OdbcConnection connection = new OdbcConnection(_connectionString))
+            using (OdbcConnection connection = new OdbcConnection(connectionString))
             {
                 OdbcCommand command = new OdbcCommand(commandString, connection);
                 command.Parameters.Add(new OdbcParameter("FACILITY", facility));

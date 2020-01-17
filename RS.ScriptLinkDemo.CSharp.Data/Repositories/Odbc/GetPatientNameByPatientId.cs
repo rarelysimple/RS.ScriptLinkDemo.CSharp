@@ -6,7 +6,7 @@
         {
             string commandString = @"";
 
-            return GetPatientString(commandString, facility, patientId);
+            return GetPatientString(_connectionStringCollection.PM, commandString, facility, patientId);
         }
     }
 }

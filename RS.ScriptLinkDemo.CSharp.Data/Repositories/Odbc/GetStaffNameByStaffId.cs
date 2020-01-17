@@ -6,7 +6,7 @@
         {
             string commandString = @"";
 
-            return GetStaffString(commandString, facility, staffId);
+            return GetStaffString(_connectionStringCollection.PM, commandString, facility, staffId);
         }
     }
 }

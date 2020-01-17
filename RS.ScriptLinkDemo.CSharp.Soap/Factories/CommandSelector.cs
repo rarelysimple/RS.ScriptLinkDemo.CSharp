@@ -1,4 +1,5 @@
 ﻿using NLog;
+using RS.ScriptLinkDemo.CSharp.Data.Models;
 using RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc;
 using RS.ScriptLinkDemo.CSharp.Objects;
 using RS.ScriptLinkDemo.CSharp.Soap.Commands;
@@ -25,8 +26,8 @@ namespace RS.ScriptLinkDemo.CSharp.Soap.Factories
             logger.Debug("Script '" + scriptName + "' requested.");
 
             // Get Dependencies
-            string odbcConnectionString = ConnectionStringSelector.GetConnectionString(optionObject2015);   // BUG: Connection String Limited to Namespace of OptionObject
-            var repository = new GetOdbcDataRepository(odbcConnectionString);
+            ConnectionStringCollection odbcConnectionStrings = ConnectionStringSelector.GetConnectionString();
+            var repository = new GetOdbcDataRepository(odbcConnectionStrings);
 
             switch (scriptName)
             {

@@ -8,7 +8,7 @@ namespace RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc
         {
             string commandString = @"";
 
-            return GetPatientDateTime(commandString, facility, patientId);
+            return GetPatientDateTime(_connectionStringCollection.PM, commandString, facility, patientId);
         }
     }
 }
