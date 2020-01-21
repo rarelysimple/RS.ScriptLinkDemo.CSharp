@@ -3,6 +3,7 @@ using RS.ScriptLinkDemo.CSharp.Data.Models;
 using RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc;
 using RS.ScriptLinkDemo.CSharp.Objects;
 using RS.ScriptLinkDemo.CSharp.Soap.Commands;
+using RS.ScriptLinkDemo.CSharp.Soap.Services.Smtp;
 
 namespace RS.ScriptLinkDemo.CSharp.Soap.Factories
 {
@@ -28,6 +29,7 @@ namespace RS.ScriptLinkDemo.CSharp.Soap.Factories
             // Get Dependencies
             ConnectionStringCollection odbcConnectionStrings = ConnectionStringSelector.GetConnectionStringCollection();
             var repository = new GetOdbcDataRepository(odbcConnectionStrings);
+            var smtpService = new SmtpService();
 
             switch (scriptName)
             {
@@ -52,6 +54,10 @@ namespace RS.ScriptLinkDemo.CSharp.Soap.Factories
                 case "HelloWorld":
                     logger.Debug(nameof(HelloWorldCommand) + " selected.");
                     return new HelloWorldCommand(optionObject2015);
+
+                case "SendEmail":
+                    logger.Debug("{command} selected.", nameof(SendEmailCommand));
+                    return new SendEmailCommand(optionObject2015, smtpService);
 
                 #endregion
 

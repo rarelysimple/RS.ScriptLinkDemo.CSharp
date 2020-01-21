@@ -99,6 +99,18 @@ namespace RS.ScriptLinkDemo.CSharp.Soap
                 KeepFileOpen = false,
                 Encoding = Encoding.UTF8
             };
+            FileTarget servicesSmtpLogFile = new FileTarget("servicessmtplogfile")
+            {
+                Name = "Services.Smtp",
+                FileName = fileLocation + fileFolder + "services.smtp" + fileExtension,
+                ArchiveFileName = fileLocation + fileFolder + "Archive\\Api\\services.smtp.{#}" + fileExtension,
+                ArchiveEvery = FileArchivePeriod.Day,
+                ArchiveNumbering = ArchiveNumberingMode.Date,
+                MaxArchiveFiles = 14,
+                ConcurrentWrites = true,
+                KeepFileOpen = false,
+                Encoding = Encoding.UTF8
+            };
 
             // Set Rules for mapping loggers to targets            
             config.AddRule(minLogLevel, LogLevel.Fatal, apiLogfile, "RS.ScriptLinkDemo.CSharp.Soap.api.*");                     // Logs from .asmx files
@@ -107,6 +119,7 @@ namespace RS.ScriptLinkDemo.CSharp.Soap
             config.AddRule(minLogLevel, LogLevel.Fatal, dataOdbcLogfile, "RS.ScriptLinkDemo.CSharp.Data.Odbc.*");               // Logs from ODBC-based Repository
             config.AddRule(minLogLevel, LogLevel.Fatal, dataSoapLogfile, "RS.ScriptLinkDemo.CSharp.Data.Repositories.Soap.*");  // Logs from SOAP-based Repository (i.e., current generation Avatar Web Services)
             config.AddRule(minLogLevel, LogLevel.Fatal, dataRestLogfile, "RS.ScriptLinkDemo.CSharp.Data.Repositories.Rest.*");  // Logs from REST-based Repository (i.e., next generation Avatar Web Services)
+            config.AddRule(minLogLevel, LogLevel.Fatal, servicesSmtpLogFile, "RS.ScriptLinkDemo.CSharp.Soap.Services.Smtp.*");  // Logs from REST-based Repository (i.e., next generation Avatar Web Services)
 
             // Apply config           
             LogManager.Configuration = config;
