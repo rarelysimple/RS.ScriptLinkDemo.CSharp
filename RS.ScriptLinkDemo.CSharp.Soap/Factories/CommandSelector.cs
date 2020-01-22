@@ -51,6 +51,10 @@ namespace RS.ScriptLinkDemo.CSharp.Soap.Factories
 
                 #region Utility and Testing Commands
 
+                case "GetOdbcData":
+                    logger.Debug("{command} selected.", nameof(GetOdbcDataCommand));
+                    return new GetOdbcDataCommand(optionObject2015, repository);
+
                 case "HelloWorld":
                     logger.Debug(nameof(HelloWorldCommand) + " selected.");
                     return new HelloWorldCommand(optionObject2015);

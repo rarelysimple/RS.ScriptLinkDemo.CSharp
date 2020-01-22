@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Commands\HelloWorldCommandTests.cs" />
     <Compile Include="Commands\SendEmailCommandTests.cs" />
+    <Compile Include="Commands\GetOdbcDataCommandTests.cs" />
     <Compile Include="Factories\ConnectionStringSelectorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Commands\DefaultCommandTests.cs" />
