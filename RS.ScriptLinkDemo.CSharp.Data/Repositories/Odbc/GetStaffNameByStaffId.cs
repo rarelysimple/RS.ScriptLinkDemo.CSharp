@@ -1,4 +1,6 @@
-﻿namespace RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc
+﻿using System;
+
+namespace RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc
 {
     public partial class GetOdbcDataRepository
     {
@@ -6,7 +8,15 @@
         {
             string commandString = @"";
 
-            return GetStaffString(_connectionStringCollection.PM, commandString, facility, staffId);
+            try
+            {
+                return GetStaffString(_connectionStringCollection.PM, commandString, facility, staffId);
+            }
+            catch (Exception ex)
+            {
+                logger.Debug(ex, "GetStaffNameByStaffId: An error occurred. Error: {errorMessage}.", ex.Message);
+                throw;
+            }
         }
     }
 }

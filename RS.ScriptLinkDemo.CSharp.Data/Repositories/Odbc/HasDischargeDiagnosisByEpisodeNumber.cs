@@ -1,4 +1,6 @@
-﻿namespace RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc
+﻿using System;
+
+namespace RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc
 {
     public partial class GetOdbcDataRepository
     {
@@ -6,7 +8,15 @@
         {
             string commandString = @"";
 
-            return GetPatientBool(_connectionStringCollection.PM, commandString, facility, patientId, episodeNumber);
+            try
+            {
+                return GetPatientBool(_connectionStringCollection.PM, commandString, facility, patientId, episodeNumber);
+            }
+            catch (Exception ex)
+            {
+                logger.Debug(ex, "HasDischargeDiagnosisByEpisodeNumber: An error occurred. Error: {errorMessage}.", ex.Message);
+                throw;
+            }
         }
     }
 }

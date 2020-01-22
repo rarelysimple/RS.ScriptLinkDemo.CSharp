@@ -116,7 +116,7 @@ namespace RS.ScriptLinkDemo.CSharp.Soap
             config.AddRule(minLogLevel, LogLevel.Fatal, apiLogfile, "RS.ScriptLinkDemo.CSharp.Soap.api.*");                     // Logs from .asmx files
             config.AddRule(minLogLevel, LogLevel.Fatal, apiCommandsLogfile, "RS.ScriptLinkDemo.CSharp.Soap.Commands.*");        // Logs from Commands
             config.AddRule(minLogLevel, LogLevel.Fatal, apiFactoriesLogfile, "RS.ScriptLinkDemo.CSharp.Soap.Factories.*");      // Logs from Factories
-            config.AddRule(minLogLevel, LogLevel.Fatal, dataOdbcLogfile, "RS.ScriptLinkDemo.CSharp.Data.Odbc.*");               // Logs from ODBC-based Repository
+            config.AddRule(minLogLevel, LogLevel.Fatal, dataOdbcLogfile, "RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc.*");  // Logs from ODBC-based Repository
             config.AddRule(minLogLevel, LogLevel.Fatal, dataSoapLogfile, "RS.ScriptLinkDemo.CSharp.Data.Repositories.Soap.*");  // Logs from SOAP-based Repository (i.e., current generation Avatar Web Services)
             config.AddRule(minLogLevel, LogLevel.Fatal, dataRestLogfile, "RS.ScriptLinkDemo.CSharp.Data.Repositories.Rest.*");  // Logs from REST-based Repository (i.e., next generation Avatar Web Services)
             config.AddRule(minLogLevel, LogLevel.Fatal, servicesSmtpLogFile, "RS.ScriptLinkDemo.CSharp.Soap.Services.Smtp.*");  // Logs from SMTP Services

@@ -8,7 +8,15 @@ namespace RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc
         {
             string commandString = @"";
 
-            return GetPatientDateTime(_connectionStringCollection.PM, commandString, facility, patientId, episodeNumber);
+            try
+            {
+                return GetPatientDateTime(_connectionStringCollection.PM, commandString, facility, patientId, episodeNumber);
+            }
+            catch (Exception ex)
+            {
+                logger.Debug(ex, "GetPatientAdmissionDateByEpisodeNumber: An error occurred. Error: {errorMessage}.", ex.Message);
+                throw;
+            }
         }
     }
 }
