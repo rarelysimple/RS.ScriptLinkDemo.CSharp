@@ -67,7 +67,7 @@ namespace RS.ScriptLinkDemo.CSharp.Soap
             {
                 Name = "Data.Odbc",
                 FileName = fileLocation + fileFolder + "data.odbc" + fileExtension,
-                ArchiveFileName = fileLocation + fileFolder + "Archive\\Api\\data.odbc.{#}" + fileExtension,
+                ArchiveFileName = fileLocation + fileFolder + "Archive\\Data\\data.odbc.{#}" + fileExtension,
                 ArchiveEvery = FileArchivePeriod.Day,
                 ArchiveNumbering = ArchiveNumberingMode.Date,
                 MaxArchiveFiles = 14,
@@ -79,7 +79,7 @@ namespace RS.ScriptLinkDemo.CSharp.Soap
             {
                 Name = "Data.Soap",
                 FileName = fileLocation + fileFolder + "data.soap" + fileExtension,
-                ArchiveFileName = fileLocation + fileFolder + "Archive\\Api\\data.soap.{#}" + fileExtension,
+                ArchiveFileName = fileLocation + fileFolder + "Archive\\Data\\data.soap.{#}" + fileExtension,
                 ArchiveEvery = FileArchivePeriod.Day,
                 ArchiveNumbering = ArchiveNumberingMode.Date,
                 MaxArchiveFiles = 14,
@@ -91,7 +91,7 @@ namespace RS.ScriptLinkDemo.CSharp.Soap
             {
                 Name = "Data.Rest",
                 FileName = fileLocation + fileFolder + "data.rest" + fileExtension,
-                ArchiveFileName = fileLocation + fileFolder + "Archive\\Api\\data.rest.{#}" + fileExtension,
+                ArchiveFileName = fileLocation + fileFolder + "Archive\\Data\\data.rest.{#}" + fileExtension,
                 ArchiveEvery = FileArchivePeriod.Day,
                 ArchiveNumbering = ArchiveNumberingMode.Date,
                 MaxArchiveFiles = 14,
@@ -103,7 +103,7 @@ namespace RS.ScriptLinkDemo.CSharp.Soap
             {
                 Name = "Services.Smtp",
                 FileName = fileLocation + fileFolder + "services.smtp" + fileExtension,
-                ArchiveFileName = fileLocation + fileFolder + "Archive\\Api\\services.smtp.{#}" + fileExtension,
+                ArchiveFileName = fileLocation + fileFolder + "Archive\\Services\\services.smtp.{#}" + fileExtension,
                 ArchiveEvery = FileArchivePeriod.Day,
                 ArchiveNumbering = ArchiveNumberingMode.Date,
                 MaxArchiveFiles = 14,
