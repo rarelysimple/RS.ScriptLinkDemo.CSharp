@@ -40,18 +40,27 @@ namespace RS.ScriptLinkDemo.CSharp.Soap.Services.Smtp
 
         public void Send(MailMessage message)
         {
-            try
+            if (message != null)
             {
-                smtpClient.Send(message);
+                try
+                {
+                    smtpClient.Send(message);
+                    logger.Debug("MailMessage sent to {toAddresses} cc'd {ccAddresses} from {fromAddress}.", message.To, message.CC, message.From);
+                }
+                catch (SmtpException ex)
+                {
+                    logger.Error(ex, "There was a problem attempting to send mail message to {toAddresses} cc'd {ccAddresses} from {fromAddress}. Error: {errorMessage}", message.To, message.CC, message.From, ex.Message);
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    logger.Error(ex, "There was a problem attempting to send mail message to {toAddresses} cc'd {ccAddresses} from {fromAddress}. ErrorType: {errorType} Error: {errorMessage}", message.To, message.CC, message.From, ex.GetType(), ex.Message);
+                    throw;
+                }
             }
-            catch (SmtpException ex)
+            else
             {
-                logger.Error(ex, "There was a problem attempting to send mail message via SMTP. Error: {errorMessage}", ex.Message);
-            }
-            catch (Exception ex)
-            {
-                logger.Error(ex, "There was a problem attempting to send mail message via SMTP. ErrorType: {errorType} Error: {errorMessage}", ex.GetType(), ex.Message);
-                throw;
+                logger.Error("No MailMessage was provided to send. Aborting.");
             }
         }
     }
