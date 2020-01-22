@@ -13,7 +13,7 @@ namespace RS.ScriptLinkDemo.CSharp.Soap
         {
             var config = new LoggingConfiguration();
 
-            string fileLocation = "C:\\Logs\\ScriptLinkService\\";
+            string fileLocation = "C:\\Logs\\RS.ScriptLinkDemo.CSharp\\";
             string fileFolder = "";
             string fileExtension = ".log";
             LogLevel minLogLevel = LogLevel.Info;
