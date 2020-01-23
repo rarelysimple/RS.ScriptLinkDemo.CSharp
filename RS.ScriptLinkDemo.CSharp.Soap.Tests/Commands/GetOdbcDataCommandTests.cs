@@ -1,8 +1,9 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using RarelySimple.AvatarScriptLink.Objects;
 using RS.ScriptLinkDemo.CSharp.Data.Repositories;
-using RS.ScriptLinkDemo.CSharp.Objects;
+//using RS.ScriptLinkDemo.CSharp.Objects;
 using RS.ScriptLinkDemo.CSharp.Soap.Commands;
 
 namespace RS.ScriptLinkDemo.CSharp.Soap.Tests.Commands

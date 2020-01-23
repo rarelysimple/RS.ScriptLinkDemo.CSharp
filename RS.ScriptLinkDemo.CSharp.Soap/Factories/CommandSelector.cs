@@ -1,7 +1,8 @@
 ﻿using NLog;
+using RarelySimple.AvatarScriptLink.Objects;
 using RS.ScriptLinkDemo.CSharp.Data.Models;
 using RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc;
-using RS.ScriptLinkDemo.CSharp.Objects;
+//using RS.ScriptLinkDemo.CSharp.Objects;
 using RS.ScriptLinkDemo.CSharp.Soap.Commands;
 using RS.ScriptLinkDemo.CSharp.Soap.Services.Smtp;
 

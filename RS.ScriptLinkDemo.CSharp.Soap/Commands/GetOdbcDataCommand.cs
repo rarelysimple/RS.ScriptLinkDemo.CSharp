@@ -1,6 +1,7 @@
 ﻿using NLog;
+using RarelySimple.AvatarScriptLink.Objects;
 using RS.ScriptLinkDemo.CSharp.Data.Repositories;
-using RS.ScriptLinkDemo.CSharp.Objects;
+//using RS.ScriptLinkDemo.CSharp.Objects;
 using System;
 using System.Data.Odbc;
 

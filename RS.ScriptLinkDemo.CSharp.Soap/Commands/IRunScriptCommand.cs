@@ -1,4 +1,6 @@
-﻿using RS.ScriptLinkDemo.CSharp.Objects;
+﻿//using RS.ScriptLinkDemo.CSharp.Objects;
+
+using RarelySimple.AvatarScriptLink.Objects;
 
 namespace RS.ScriptLinkDemo.CSharp.Soap.Commands
 {

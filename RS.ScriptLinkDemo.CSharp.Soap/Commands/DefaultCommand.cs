@@ -1,5 +1,6 @@
 ﻿using NLog;
-using RS.ScriptLinkDemo.CSharp.Objects;
+using RarelySimple.AvatarScriptLink.Objects;
+//using RS.ScriptLinkDemo.CSharp.Objects;
 
 namespace RS.ScriptLinkDemo.CSharp.Soap.Commands
 {
