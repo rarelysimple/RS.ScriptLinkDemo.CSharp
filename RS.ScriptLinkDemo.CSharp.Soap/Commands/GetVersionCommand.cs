@@ -18,7 +18,7 @@ namespace RS.ScriptLinkDemo.CSharp.Soap.Commands
         {
             logger.Debug("Executing GetVersionCommand");
 
-            string version = "v.0.0.1";
+            string version = typeof(GetVersionCommand).Assembly.GetName().Version.ToString();
 
             if (_optionObject.GetType() == typeof(OptionObject) ||
                 _optionObject.GetType() == typeof(OptionObject2) ||
