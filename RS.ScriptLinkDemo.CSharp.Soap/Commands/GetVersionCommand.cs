@@ -23,7 +23,11 @@ namespace RS.ScriptLinkDemo.CSharp.Soap.Commands
             if (_optionObject.GetType() == typeof(OptionObject) ||
                 _optionObject.GetType() == typeof(OptionObject2) ||
                 _optionObject.GetType() == typeof(OptionObject2015))
-                return version + " (" + _optionObject.GetType().Name + ")";
+            {
+                version += " (" + _optionObject.GetType().Name + ")";
+                logger.Debug("GetVersionCommand returned {version}.", version);
+                return version;
+            }
             else
                 return version;
         }
