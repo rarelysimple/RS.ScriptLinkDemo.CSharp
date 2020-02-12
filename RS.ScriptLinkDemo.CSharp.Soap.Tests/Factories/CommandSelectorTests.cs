@@ -74,5 +74,20 @@ namespace RS.ScriptLinkDemo.CSharp.Soap.Tests.Factories
             // Assert
             Assert.AreEqual(expected.GetType(), actual.GetType());
         }
+
+        [TestMethod]
+        public void GetCommand_SetFieldValue_ReturnsSetFieldValueCommand()
+        {
+            // Arrange
+            OptionObject2015 optionObject2015 = new OptionObject2015();
+            string parameter = "SetFieldValue";
+            SetFieldValueCommand expected = new SetFieldValueCommand(optionObject2015, parameter);
+
+            // Act
+            IRunScriptCommand actual = CommandSelector.GetCommand(optionObject2015, parameter);
+
+            // Assert
+            Assert.AreEqual(expected.GetType(), actual.GetType());
+        }
     }
 }

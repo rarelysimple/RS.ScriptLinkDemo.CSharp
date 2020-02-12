@@ -64,6 +64,10 @@ namespace RS.ScriptLinkDemo.CSharp.Soap.Factories
                     logger.Debug("{command} selected.", nameof(SendEmailCommand));
                     return new SendEmailCommand(optionObject2015, smtpService);
 
+                case "SetFieldValue":
+                    logger.Debug("{command} selected.", nameof(SetFieldValueCommand));
+                    return new SetFieldValueCommand(optionObject2015, parameter);
+
                 #endregion
 
                 default:

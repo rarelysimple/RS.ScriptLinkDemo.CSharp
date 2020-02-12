@@ -51,7 +51,7 @@
       <HintPath>..\packages\NLog.4.6.8\lib\net45\NLog.dll</HintPath>
     </Reference>
     <Reference Include="RarelySimple.AvatarScriptLink, Version=0.1.0.0, Culture=neutral, PublicKeyToken=138a8dd64b77b7c1, processorArchitecture=MSIL">
-      <HintPath>..\packages\RarelySimple.AvatarScriptLink.0.1.2-beta-g6f668e5202\lib\net461\RarelySimple.AvatarScriptLink.dll</HintPath>
+      <HintPath>..\packages\RarelySimple.AvatarScriptLink.0.1.14-beta-ge1c5c8d8b2\lib\net461\RarelySimple.AvatarScriptLink.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Odbc, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.Odbc.4.7.0\lib\net461\System.Data.Odbc.dll</HintPath>
@@ -100,6 +100,7 @@
     <Compile Include="Commands\IGetVersionCommand.cs" />
     <Compile Include="Commands\IRunScriptCommand.cs" />
     <Compile Include="Commands\SendEmailCommand.cs" />
+    <Compile Include="Commands\SetFieldValueCommand.cs" />
     <Compile Include="Factories\CommandSelector.cs" />
     <Compile Include="Factories\ConnectionStringSelector.cs" />
     <Compile Include="Global.asax.cs">

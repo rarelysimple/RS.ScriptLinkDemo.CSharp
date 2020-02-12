@@ -55,7 +55,7 @@
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="RarelySimple.AvatarScriptLink, Version=0.1.0.0, Culture=neutral, PublicKeyToken=138a8dd64b77b7c1, processorArchitecture=MSIL">
-      <HintPath>..\packages\RarelySimple.AvatarScriptLink.0.1.2-beta-g6f668e5202\lib\net461\RarelySimple.AvatarScriptLink.dll</HintPath>
+      <HintPath>..\packages\RarelySimple.AvatarScriptLink.0.1.14-beta-ge1c5c8d8b2\lib\net461\RarelySimple.AvatarScriptLink.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -71,6 +71,7 @@
     <Compile Include="Commands\HelloWorldCommandTests.cs" />
     <Compile Include="Commands\SendEmailCommandTests.cs" />
     <Compile Include="Commands\GetOdbcDataCommandTests.cs" />
+    <Compile Include="Commands\SetFieldValueCommandTests.cs" />
     <Compile Include="Factories\ConnectionStringSelectorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Commands\DefaultCommandTests.cs" />
