@@ -19,7 +19,9 @@ namespace RS.ScriptLinkDemo.CSharp.Data.Repositories.Odbc
                 try
                 {
                     connection.Open();
-                    stringResult = (string)command.ExecuteScalar();
+                    object obj = command.ExecuteScalar();
+                    if (obj != null && obj != DBNull.Value)
+                        stringResult = (string)obj;
                 }
                 catch (OdbcException ex)
                 {
