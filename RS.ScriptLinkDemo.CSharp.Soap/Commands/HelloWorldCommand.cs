@@ -1,39 +1,23 @@
 ﻿using NLog;
 using RarelySimple.AvatarScriptLink.Objects;
-//using RS.ScriptLinkDemo.CSharp.Objects;
+using RarelySimple.AvatarScriptLink.Objects.Advanced;
 
 namespace RS.ScriptLinkDemo.CSharp.Soap.Commands
 {
     public class HelloWorldCommand : IRunScriptCommand
     {
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
-        private readonly OptionObject2015 _optionObject2015;
+        private readonly IOptionObjectDecorator _optionObject;
 
-        public HelloWorldCommand(OptionObject2015 optionObject2015)
+        public HelloWorldCommand(IOptionObjectDecorator optionObject)
         {
-            _optionObject2015 = optionObject2015;
+            _optionObject = optionObject;
         }
 
-        public OptionObject2015 Execute()
+        public IOptionObject2015 Execute()
         {
             logger.Debug("Executing HelloWorldCommand");
-
-            return new OptionObject2015()
-            {
-                EntityID = _optionObject2015.EntityID,
-                EpisodeNumber = _optionObject2015.EpisodeNumber,
-                ErrorCode = 3,
-                ErrorMesg = "Hello, World!",
-                Facility = _optionObject2015.Facility,
-                NamespaceName = _optionObject2015.NamespaceName,
-                OptionId = _optionObject2015.OptionId,
-                OptionStaffId = _optionObject2015.OptionStaffId,
-                OptionUserId = _optionObject2015.OptionUserId,
-                ParentNamespace = _optionObject2015.ParentNamespace,
-                ServerName = _optionObject2015.ServerName,
-                SystemCode = _optionObject2015.SystemCode,
-                SessionToken = _optionObject2015.SessionToken
-            };
+            return _optionObject.ToReturnOptionObject(ErrorCode.Informational, "Hello, World!");
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RarelySimple.AvatarScriptLink.Objects;
-//using RS.ScriptLinkDemo.CSharp.Objects;
+using RarelySimple.AvatarScriptLink.Objects.Advanced;
 using RS.ScriptLinkDemo.CSharp.Soap.Commands;
 
 namespace RS.ScriptLinkDemo.CSharp.Soap.Tests.Commands
@@ -14,9 +14,10 @@ namespace RS.ScriptLinkDemo.CSharp.Soap.Tests.Commands
             // Arrange
             OptionObject2015 expected = new OptionObject2015();
 
-            OptionObject2015 optionObject2015 = new OptionObject2015();
-            string parameter = "";
-            var command = new DefaultCommand(optionObject2015, parameter);
+            OptionObject2015 optionObject = new OptionObject2015();
+            IOptionObjectDecorator optionObjectDecorator = new OptionObjectDecorator(optionObject);
+            IParameter parameter = new Parameter("");
+            var command = new DefaultCommand(optionObjectDecorator, parameter);
 
             // Act
             var actual = command.Execute();
@@ -31,9 +32,10 @@ namespace RS.ScriptLinkDemo.CSharp.Soap.Tests.Commands
             // Arrange
             double expected = 3;
 
-            OptionObject2015 optionObject2015 = new OptionObject2015();
-            string parameter = "";
-            var command = new DefaultCommand(optionObject2015, parameter);
+            OptionObject2015 optionObject = new OptionObject2015();
+            IOptionObjectDecorator optionObjectDecorator = new OptionObjectDecorator(optionObject);
+            IParameter parameter = new Parameter("");
+            var command = new DefaultCommand(optionObjectDecorator, parameter);
 
             // Act
             var actual = command.Execute();

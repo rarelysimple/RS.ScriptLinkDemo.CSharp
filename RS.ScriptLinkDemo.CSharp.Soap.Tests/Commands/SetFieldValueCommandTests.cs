@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RarelySimple.AvatarScriptLink.Objects;
+using RarelySimple.AvatarScriptLink.Objects.Advanced;
 using RS.ScriptLinkDemo.CSharp.Soap.Commands;
 using System.Collections.Generic;
 
@@ -41,11 +42,13 @@ namespace RS.ScriptLinkDemo.CSharp.Soap.Tests.Commands
                     formObject
                 }
             };
+            IOptionObjectDecorator optionObjectDecorator = new OptionObjectDecorator(optionObject2015);
+            IParameter parameter = new Parameter("SetFieldValue,123,New Field Value");
             string expected = "";
-            var command = new SetFieldValueCommand(optionObject2015, "SetFieldValue,123,New Field Value");
+            var command = new SetFieldValueCommand(optionObjectDecorator, parameter);
 
             // Act
-            OptionObject2015 optionObject = command.Execute();
+            OptionObject2015 optionObject = (OptionObject2015)command.Execute();
             string actual = optionObject.Forms[0].CurrentRow.Fields[0].Enabled;
 
             // Assert

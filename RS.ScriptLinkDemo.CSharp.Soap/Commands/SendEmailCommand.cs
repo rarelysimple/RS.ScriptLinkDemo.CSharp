@@ -1,6 +1,6 @@
 ﻿using NLog;
 using RarelySimple.AvatarScriptLink.Objects;
-//using RS.ScriptLinkDemo.CSharp.Objects;
+using RarelySimple.AvatarScriptLink.Objects.Advanced;
 using RS.ScriptLinkDemo.CSharp.Soap.Services.Smtp;
 using System.Net.Mail;
 
@@ -9,16 +9,16 @@ namespace RS.ScriptLinkDemo.CSharp.Soap.Commands
     public class SendEmailCommand : IRunScriptCommand
     {
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
-        private readonly OptionObject2015 _optionObject2015;
+        private readonly IOptionObjectDecorator _optionObject;
         private readonly ISmtpService _smtpService;
 
-        public SendEmailCommand(OptionObject2015 optionObject2015, ISmtpService smtpService)
+        public SendEmailCommand(IOptionObjectDecorator optionObject, ISmtpService smtpService)
         {
-            _optionObject2015 = optionObject2015;
+            _optionObject = optionObject;
             _smtpService = smtpService;
         }
 
-        public OptionObject2015 Execute()
+        public IOptionObject2015 Execute()
         {
             logger.Debug("Executing {command}.", nameof(SendEmailCommand));
 
@@ -36,22 +36,7 @@ namespace RS.ScriptLinkDemo.CSharp.Soap.Commands
             _smtpService.Send(mailMessage);
             _smtpService.Dispose();
 
-            return new OptionObject2015()
-            {
-                EntityID = _optionObject2015.EntityID,
-                EpisodeNumber = _optionObject2015.EpisodeNumber,
-                ErrorCode = 0,
-                ErrorMesg = "Email sent.",
-                Facility = _optionObject2015.Facility,
-                NamespaceName = _optionObject2015.NamespaceName,
-                OptionId = _optionObject2015.OptionId,
-                OptionStaffId = _optionObject2015.OptionStaffId,
-                OptionUserId = _optionObject2015.OptionUserId,
-                ParentNamespace = _optionObject2015.ParentNamespace,
-                ServerName = _optionObject2015.ServerName,
-                SystemCode = _optionObject2015.SystemCode,
-                SessionToken = _optionObject2015.SessionToken
-            };
+            return _optionObject.ToReturnOptionObject(ErrorCode.None, "Email sent.");
         }
     }
 }

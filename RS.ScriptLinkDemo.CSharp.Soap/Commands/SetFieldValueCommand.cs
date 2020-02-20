@@ -1,31 +1,27 @@
 ﻿using NLog;
-using RarelySimple.AvatarScriptLink.Objects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using RarelySimple.AvatarScriptLink.Objects.Advanced;
 
 namespace RS.ScriptLinkDemo.CSharp.Soap.Commands
 {
     public class SetFieldValueCommand : IRunScriptCommand
     {
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
-        private readonly OptionObject2015 _optionObject2015;
-        private readonly string _parameter;
+        private readonly IOptionObjectDecorator _optionObject;
+        private readonly IParameter _parameter;
 
-        public SetFieldValueCommand(OptionObject2015 optionObject2015, string parameter)
+        public SetFieldValueCommand(IOptionObjectDecorator optionObject, IParameter parameter)
         {
-            _optionObject2015 = optionObject2015;
+            _optionObject = optionObject;
             _parameter = parameter;
         }
 
-        public OptionObject2015 Execute()
+        public IOptionObject2015 Execute()
         {
             logger.Debug("Executing SetFieldValueCommand");
-
-            if (_optionObject2015.IsFieldPresent("123"))
-                _optionObject2015.SetFieldValue("123", "Set by ScriptLink API.");
-            return _optionObject2015.ToOptionObject2015();
+            string fieldNumber = _parameter.GetString(1);
+            if (_optionObject.IsFieldPresent(fieldNumber))
+                _optionObject.SetFieldValue(fieldNumber, "Set by ScriptLink API.");
+            return _optionObject.ToOptionObject2015();
         }
     }
 }

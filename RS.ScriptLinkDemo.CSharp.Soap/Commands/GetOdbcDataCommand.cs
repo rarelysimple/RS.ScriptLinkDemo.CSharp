@@ -1,7 +1,6 @@
 ﻿using NLog;
-using RarelySimple.AvatarScriptLink.Objects;
+using RarelySimple.AvatarScriptLink.Objects.Advanced;
 using RS.ScriptLinkDemo.CSharp.Data.Repositories;
-//using RS.ScriptLinkDemo.CSharp.Objects;
 using System;
 using System.Data.Odbc;
 
@@ -10,22 +9,22 @@ namespace RS.ScriptLinkDemo.CSharp.Soap.Commands
     public class GetOdbcDataCommand : IRunScriptCommand
     {
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
-        private readonly OptionObject2015 _optionObject2015;
+        private readonly IOptionObjectDecorator _optionObject;
         private readonly IGetDataRepository _repository;
 
-        public GetOdbcDataCommand(OptionObject2015 optionObject2015, IGetDataRepository repository)
+        public GetOdbcDataCommand(IOptionObjectDecorator optionObject, IGetDataRepository repository)
         {
-            _optionObject2015 = optionObject2015;
+            _optionObject = optionObject;
             _repository = repository;
         }
 
-        public OptionObject2015 Execute()
+        public IOptionObject2015 Execute()
         {
             double errorCode = 0;
             string errorMesg;
             try
             {
-                int episodeCount = _repository.GetPatientCountOfOpenEpisodesByPatientId(_optionObject2015.Facility, _optionObject2015.EntityID);
+                int episodeCount = _repository.GetPatientCountOfOpenEpisodesByPatientId(_optionObject.Facility, _optionObject.EntityID);
                 logger.Debug("The ODBC call successfully retrieved this value {value}.", episodeCount);
                 errorMesg = "The ODBC call was successful.";
             }
@@ -41,22 +40,7 @@ namespace RS.ScriptLinkDemo.CSharp.Soap.Commands
                 throw;
             }
 
-            return new OptionObject2015()
-            {
-                EntityID = _optionObject2015.EntityID,
-                EpisodeNumber = _optionObject2015.EpisodeNumber,
-                ErrorCode = errorCode,
-                ErrorMesg = errorMesg,
-                Facility = _optionObject2015.Facility,
-                NamespaceName = _optionObject2015.NamespaceName,
-                OptionId = _optionObject2015.OptionId,
-                OptionStaffId = _optionObject2015.OptionStaffId,
-                OptionUserId = _optionObject2015.OptionUserId,
-                ParentNamespace = _optionObject2015.ParentNamespace,
-                ServerName = _optionObject2015.ServerName,
-                SystemCode = _optionObject2015.SystemCode,
-                SessionToken = _optionObject2015.SessionToken
-            };
+            return _optionObject.ToReturnOptionObject(errorCode, errorMesg);
         }
     }
 }

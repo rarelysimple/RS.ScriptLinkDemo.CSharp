@@ -1,42 +1,26 @@
 ﻿using NLog;
 using RarelySimple.AvatarScriptLink.Objects;
-//using RS.ScriptLinkDemo.CSharp.Objects;
+using RarelySimple.AvatarScriptLink.Objects.Advanced;
 
 namespace RS.ScriptLinkDemo.CSharp.Soap.Commands
 {
     public class DefaultCommand : IRunScriptCommand
     {
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
-        private readonly OptionObject2015 _optionObject2015;
-        private readonly string _parameter;
+        private readonly IOptionObjectDecorator _optionObjectDecorator;
+        private readonly IParameter _parameter;
 
-        public DefaultCommand(OptionObject2015 optionObject2015, string parameter)
+        public DefaultCommand(IOptionObjectDecorator optionObjectDecorator, IParameter parameter)
         {
-            _optionObject2015 = optionObject2015;
+            _optionObjectDecorator = optionObjectDecorator;
             _parameter = parameter;
         }
 
-        public OptionObject2015 Execute()
+        public IOptionObject2015 Execute()
         {
-            string message = "Error: There is no command matching the parameter '" + _parameter + "'. Please verify your settings.";
+            string message = "Error: There is no command matching the script name '" + _parameter.ScriptName + "'. Please verify your settings.";
             logger.Error(message);
-
-            return new OptionObject2015()
-            {
-                EntityID = _optionObject2015.EntityID,
-                EpisodeNumber = _optionObject2015.EpisodeNumber,
-                ErrorCode = 3,
-                ErrorMesg = message,
-                Facility = _optionObject2015.Facility,
-                NamespaceName = _optionObject2015.NamespaceName,
-                OptionId = _optionObject2015.OptionId,
-                OptionStaffId = _optionObject2015.OptionStaffId,
-                OptionUserId = _optionObject2015.OptionUserId,
-                ParentNamespace = _optionObject2015.ParentNamespace,
-                ServerName = _optionObject2015.ServerName,
-                SystemCode = _optionObject2015.SystemCode,
-                SessionToken = _optionObject2015.SessionToken
-            };
+            return _optionObjectDecorator.ToReturnOptionObject(ErrorCode.Alert, message);
         }
     }
 }

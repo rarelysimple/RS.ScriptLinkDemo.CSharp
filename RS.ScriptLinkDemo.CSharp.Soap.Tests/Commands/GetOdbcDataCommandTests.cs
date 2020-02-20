@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using RarelySimple.AvatarScriptLink.Objects;
+using RarelySimple.AvatarScriptLink.Objects.Advanced;
 using RS.ScriptLinkDemo.CSharp.Data.Repositories;
 //using RS.ScriptLinkDemo.CSharp.Objects;
 using RS.ScriptLinkDemo.CSharp.Soap.Commands;
@@ -22,9 +23,10 @@ namespace RS.ScriptLinkDemo.CSharp.Soap.Tests.Commands
                 EntityID = "12345",
                 Facility = "1"
             };
+            IOptionObjectDecorator optionObjectDecorator = new OptionObjectDecorator(optionObject2015);
             var repository = new Mock<IGetDataRepository>();
             repository.Setup(p => p.GetPatientCountOfOpenEpisodesByPatientId(optionObject2015.Facility, optionObject2015.EntityID)).Returns(3);
-            var command = new GetOdbcDataCommand(optionObject2015, repository.Object);
+            var command = new GetOdbcDataCommand(optionObjectDecorator, repository.Object);
 
             // Act
             var actual = command.Execute();
