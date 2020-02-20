@@ -31,7 +31,7 @@ namespace RS.ScriptLinkDemo.CSharp.Soap.Factories
             var repository = new GetOdbcDataRepository(odbcConnectionStrings);
             var smtpService = new SmtpService();
 
-            switch (parameter.ScriptName)
+            switch (parameter.ScriptName.ToUpperInvariant().Trim())
             {
                 #region General Purpose Commands
 
@@ -51,19 +51,19 @@ namespace RS.ScriptLinkDemo.CSharp.Soap.Factories
 
                 #region Utility and Testing Commands
 
-                case "GetOdbcData":
+                case "GETODBCDATA":
                     logger.Debug("{command} selected.", nameof(GetOdbcDataCommand));
                     return new GetOdbcDataCommand(optionObjectDecorator, repository);
 
-                case "HelloWorld":
+                case "HELLOWORLD":
                     logger.Debug(nameof(HelloWorldCommand) + " selected.");
                     return new HelloWorldCommand(optionObjectDecorator);
 
-                case "SendEmail":
+                case "SENDEMAIL":
                     logger.Debug("{command} selected.", nameof(SendEmailCommand));
                     return new SendEmailCommand(optionObjectDecorator, smtpService);
 
-                case "SetFieldValue":
+                case "SETFIELDVALUE":
                     logger.Debug("{command} selected.", nameof(SetFieldValueCommand));
                     return new SetFieldValueCommand(optionObjectDecorator, parameter);
 
